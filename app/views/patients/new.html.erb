@@ -2,7 +2,7 @@
 
 <%= link_to "Home", root_path %>
 
-<% form_for @patient do |p| %>
+<%=form_for @patient do |f| %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
@@ -14,16 +14,16 @@
   <%= f.text_field :date_of_birth %>
     <br>
   <%= f.label :description %>
-  <%= f.text_field: description %>
+  <%= f.text_field :description %>
     <br>
   <%= f.label :blood_type %>
   <%= f.text_field :blood_type %>
     <br>
   <%= f.label :gender %>
   <%= f.text_field :gender %>
-
+    <br>
   <%=f.submit %>
 
-end  
+<% end %> 
 
 
