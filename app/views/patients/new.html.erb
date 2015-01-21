@@ -1,29 +1,16 @@
 <h1>newpatient!!!!</h1>
 
+<% if @patient.errors.any? %>
+<% @patient.errors.full_messages.each do |
+  message| %>
+  <p><%= message %></p>
+  <br>
+
+
+  <% end %>
+
+<% end %>
+
 <%= link_to "Home", root_path %>
 
-<%=form_for @patient do |f| %>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-    <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-    <br>
-  <%= f.label :date_of_birth %>
-  <%= f.text_field :date_of_birth %>
-    <br>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-    <br>
-  <%= f.label :blood_type %>
-  <%= f.text_field :blood_type %>
-    <br>
-  <%= f.label :gender %>
-  <%= f.text_field :gender %>
-    <br>
-  <%=f.submit %>
-
-<% end %> 
-
-
+<%= render 'forms' %>
