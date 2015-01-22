@@ -8,8 +8,8 @@
 </head>
 <body>
 
-  <%link_to "Home", root_path %>
-  <%link_to "Hospitals", hospitals_path %>
+  <%=link_to "Home", root_path %>
+  <%=link_to "Hospitals", hospitals_path %>
   
   <% if flash[:notice] %>
   <h3 id="notice"><%= flash[:notice]%></h3>

@@ -1,4 +1,7 @@
 <h1>Hospital</h1>
+
+<%= link_to "ADD NEW HOspital", new_hospital_path %>
+
 <% @hospitals.each do |h| %>
 
     <%= h.name %>
@@ -9,4 +12,6 @@
     <%= h.specialty %>
 
 
-<%=link_to "View",hospitals_path %>
+<%=link_to "View", hospital_path(h) %>
+
+<% end %>

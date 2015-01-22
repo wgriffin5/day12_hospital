@@ -1,4 +1,4 @@
-<%=form_for @hospital do |h|
+<%=form_for @hospital do |h| %>
   <%= h.label :name %>
   <%= h.text_field :name %>
     <br>
@@ -9,7 +9,7 @@
   <%= h.text_field :city %>
     <br>
   <%= h.label :state %>
-  <%= h.text_field :state %>
+  <%= h.select :state, options_for_select(Hospital::STATE_OPTIONS), include_blank: "---STATE---" %>
     <br>
   <%= h.label :zip %>
   <%= h.text_field :zip %>
@@ -18,6 +18,8 @@
   <%= h.text_field :specialty %>
     <br>
 
+<%= h.submit %>
+<% end %>
 
 
 
