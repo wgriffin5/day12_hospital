@@ -1,0 +1,12 @@
+<h1>Hospital</h1>
+<% @hospitals.each do |h| %>
+
+    <%= h.name %>
+    <%= h.address %>
+    <%= h.city %>
+    <%= h.state %>
+    <%= h.zip %>
+    <%= h.specialty %>
+
+
+<%=link_to "View",hospitals_path %>

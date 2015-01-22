@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  patient_id: MyString
+  hospital_id: MyString
+  cost: 1.5
+
+two:
+  name: MyString
+  description: MyString
+  patient_id: MyString
+  hospital_id: MyString
+  cost: 1.5
