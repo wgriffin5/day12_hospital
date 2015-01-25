@@ -1,14 +1,29 @@
-<%= @hospital.name %> 
-<%= @hospital.address %> 
-<%= @hospital.city %> 
-<%= @hospital.state %> 
-<%= @hospital.zip %> 
-<%= @hospital.specialty %> 
+<br>
+<br>
+Name:        <%= @hospital.name %> 
+<br>
+<br>
+Address:     <%= @hospital.address %>
+<br>
+<br> 
+City:     <%= @hospital.city %> 
+<br>
+<br>
+State:     <%= @hospital.state %> 
+<br>
+<br>
+Zip:     <%= @hospital.zip %> 
+<br>
+<br>
+Specialty:     <%= @hospital.specialty %> 
+<br>
+<br>
 
 <%= link_to "Edit Hospital", edit_hospital_path(@hospital) %>
 
 <%= link_to "Delete Hospital", hospital_path(@hospital), method: :delete %>
 
-<%= link_to "Add New Patient", hospital_patient_path(@hospital) %>
 
-<%= link_to "View Patients",  hospital_patient_path(@hospital)  %>
+<%= link_to "View Patients", hospital_patients_path(@hospital)  %>
+
+

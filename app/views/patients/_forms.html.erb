@@ -1,7 +1,7 @@
 <%= link_to "Home", root_path %>
 
 
-<%=form_for @patient do |f| %>
+<%=form_for [@hospital, @patient] do |f| %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>

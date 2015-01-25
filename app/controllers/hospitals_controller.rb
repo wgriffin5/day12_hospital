@@ -19,7 +19,6 @@ def show
 end 
 
 
-
 def edit
   @hospital = Hospital.find params[:id]
 end

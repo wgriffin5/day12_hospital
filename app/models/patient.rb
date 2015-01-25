@@ -15,6 +15,6 @@ BLOOD_TYPE_OPTIONS = [
   "AB-",
 
 ]
-  has_and_belongs_to_many :hospitals 
-  has_and_belongs_to_many :medications
+  belongs_to :hospital 
+  has_many :medications
 end
