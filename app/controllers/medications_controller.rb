@@ -26,7 +26,7 @@ def create
     if @medication.save
       flash[:notice] = 'Medication added.'
       @patient = Patient.find params[:patient_id]
-      redirect_to hospital_patients_medications_path
+      redirect_to hospital_patient_medications_path(@hospital,@patient,@medication)
     else
       flash[:error] = 'Medication NOT added successfully'
       render :new
@@ -61,9 +61,14 @@ end
 
 def medication_params 
   params.require(:medication).permit(
+      :id,
       :name,
       :description,
-      :price,
+      :patient_id,
+      :hospital_id
+      :cost,
+      :created_at,
+      :updated_at
 )
 end
 end

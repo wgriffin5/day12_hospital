@@ -11,9 +11,14 @@
 <%= link_to "View Medication",
   hospital_patients_medication_path(@hospital, patient, medication) %>
 
+ID: <%= medication.id %>
 Name: <%= medication.name %>
 Description: <%= medication.description %>
-Price: <%= medication.price %>
+Patient ID: <%= medication.patient_id %>
+Hospital ID: <% medication.hospital_id %>
+Cost: <%= medication.cost %>
+Creation Date: <%= medication.created_at %>
+Update Date: <%= medication.updated_at %>
 
 <% end %>
 

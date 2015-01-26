@@ -14,11 +14,11 @@ end
 
 def create 
   @hospital = Hospital.find params[:hospital_id]
-  @patient = @hospital.patient.create patient_params
+  @patient = @hospital.patients.create patient_params
   if @patient.save
     flash[:notice] = 'Patient was added succesfully'
     @hospital = Hospital.find params[:hospital_id]
-    redirect_to hospital_patients_path
+    redirect_to hospital_patients_path(@hospital)
   else
     flash[:error] = 'Patient added unsuccessfully'
     render :new

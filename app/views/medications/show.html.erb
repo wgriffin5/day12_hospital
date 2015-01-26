@@ -1,12 +1,22 @@
 a<%= link_to "Home",
   root_path %>
 
-
+<%= @medication.id %>
+  <br>
 <%= @medication.name %>
   <br>
 <%= @medication.description %>
   <br>
-<%= @medication.price %>
+<%= @medication.patient_id %>
+  <br>
+<%= @medication.hospital_id %>
+  <br>
+<%= @medication.cost %>
+  <br>
+<%= @medication.created_at %>
+  <br>
+<%= @medication.updated_at %>
+  <br>
 
   <br>
   <br>
