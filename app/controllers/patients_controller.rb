@@ -8,7 +8,8 @@ end
 
 def new
   @hospital = Hospital.find params[:hospital_id]
-  @patient = @hospital.patient.new
+  @patient = @hospital.patients.new
+  @doctors = Doctor.all
 end 
 
 
@@ -22,9 +23,10 @@ def create
   else
     flash[:error] = 'Patient added unsuccessfully'
     render :new
+  end
 end
 
-end
+
 
 def show
   @hospital = Hospital.find params[:hospital_id]
@@ -34,6 +36,7 @@ end
 def edit
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
+  @doctors = Doctor.all
 end
 
 def update

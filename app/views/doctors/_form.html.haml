@@ -1,0 +1,11 @@
+= form_for @doctor do |f|
+    / - @doctor.errors.any?
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.label :practice
+    = f.text_field :practice
+    %br
+    = f.submit
+
+= link_to "Cancel", :back 

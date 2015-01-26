@@ -3,10 +3,11 @@ class HospitalsController < ApplicationController
 def index
   @hospitals = Hospital.all
 
-end
+end 
 
 def new
   @hospital = Hospital.new
+  @doctors = Doctor.all
   end
 
 def create 
@@ -21,6 +22,7 @@ end
 
 def edit
   @hospital = Hospital.find params[:id]
+  @doctors = Doctor.all
 end
 
 def update
