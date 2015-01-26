@@ -16,6 +16,7 @@ BLOOD_TYPE_OPTIONS = [
 
 ]
   belongs_to :hospital 
-  has_many :medications
-  has_many :doctors, as: :doctorable
+  # has_many :medications
+  has_many :doctors, through: :patient_doctors
+  has_many :patient_doctors
 end

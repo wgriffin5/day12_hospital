@@ -8,4 +8,9 @@
     %br
     = f.submit
 
+
+/ -@patients.each do |p|
+/     check_box_tag 'patient[doctor_ids][]', p.id, @patient.doctors.include?(p)
+
+
 = link_to "Cancel", :back 

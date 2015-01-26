@@ -1,7 +1,9 @@
 class Hospital < ActiveRecord::Base
   has_many :patients, dependent: :destroy
   has_many :medications
-  has_many :doctors, as: :doctorable 
+  has_many :doctors, through: :hospital_doctors
+  has_many :ratings, as: :ratable 
+  has_many :hospital_doctors
 
   # through: :patients
 

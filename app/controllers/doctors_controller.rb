@@ -6,10 +6,15 @@ end
 
 def new
   @doctor = Doctor.new
+  @hospital = Hospital.all
 end
 
 def show
-  @doctor = Doctor.find params[:id] 
+  @doctor = Doctor.find params[:id]
+  # @hospitals = Hospital.all
+  # @patients = Patient.all
+  @rating = Rating.new 
+  @ratings = @doctor.ratings
 end 
 
 def create
@@ -17,8 +22,15 @@ def create
   redirect_to doctor_path(@doctor) 
 end
 
+def create_rating
+  @doctor = Doctor.find params[:id]
+  @rating = @doctor.ratings.create rating_params
+  redirect_to doctor_path(@doctor)
+end
 def edit
   @doctor = Doctor.find params[:id]
+  @hospitals = Hospital.all
+  @patients = Patient.all 
 end
 
 def update
@@ -42,10 +54,24 @@ def doctor_params
     :name,
     :practice,
     :doctorable_id,
-    :doctorable_type
+    :doctorable_type,
+    doctor_ids: [],
+    hospital_ids: []
     )
+
+
 end 
 end 
+
+
+def rating_params
+  params.require(:rating).permit(
+    :score,
+    :comment,
+    :ratable_id,
+    :ratable_type
+    )
+end
 
 
 

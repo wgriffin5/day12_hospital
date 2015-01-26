@@ -8,6 +8,7 @@ end
 def new
   @hospital = Hospital.new
   @doctors = Doctor.all
+  
   end
 
 def create 
@@ -15,8 +16,18 @@ def create
   redirect_to hospitals_path
 end 
 
+def create_rating
+  @hospital = Hospital.find params[:id]
+  @rating = @hospital.ratings.create rating_params
+  redirect_to hospital_path(@hospital)
+end
+
+
 def show 
   @hospital = Hospital.find params[:id]
+  @doctors = @hospital.doctors
+  @ratings = @hospital.ratings
+  @rating = Rating.new
 end 
 
 
@@ -37,6 +48,15 @@ def destroy
   redirect_to hospitals_path
 end
 
+def create_rating
+  params.require(:rating).permit(
+    :score,
+    :comment,
+    :ratable_id,
+    :ratable_type
+    )
+end
+
   private 
   def hospital_params
     params.require(:hospital).permit(
@@ -45,7 +65,9 @@ end
     :city,
     :state,
     :zip,
-    :specialty
+    :specialty,
+    hospital_ids: [],
+    doctor_ids: []
     )
 end
 end 
