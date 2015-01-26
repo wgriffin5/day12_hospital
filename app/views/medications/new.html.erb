@@ -1,0 +1,14 @@
+<h1>newmedication!!!</h1>
+
+<% if @medication.errors.any? %>
+  <% @patient.errors.full_messages.each do |message| %>
+
+  <p><%= message %></p>
+
+  <br>
+
+  <% end %>
+
+<%= link_to "Home", root_path %>
+
+<% render 'forms' %>

@@ -1,0 +1,20 @@
+ <%= link_to "Home", root_path %>
+
+
+ <%form_for [@hospital, @patient, @medication] do |m|
+
+  <%= m.label :name %>
+  <%= m.text_field :name %>
+    <br>
+  <%= m.label :description %>
+  <%= m.text_field :description %>
+    <br>
+  <%= m.label :price %>
+  <%= m.text_field :price %>
+    <br>
+
+  <%=m.submit %>
+
+  <% end %>
+
+  

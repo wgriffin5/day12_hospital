@@ -1,0 +1,26 @@
+<%= link_to "Add Medication",
+  new_hospital_patient_medication_path(@patient) %>
+
+      <br>
+<h4> Existing Medications:</h4>
+
+      <br>
+
+<% @medications.each do |medication| %>
+
+<%= link_to "View Medication",
+  hospital_patients_medication_path(@hospital, patient, medication) %>
+
+Name: <%= medication.name %>
+Description: <%= medication.description %>
+Price: <%= medication.price %>
+
+<% end %>
+
+<%= link_to "Return",
+  patients_path %>
+
+
+
+
+
