@@ -9,7 +9,7 @@ end
 def new
   @hospital = Hospital.find params[:hospital_id]
   @patient = @hospital.patients.new
-  # @doctors = Doctor.all
+  @doctors = Doctor.all
 end 
 
 
@@ -37,7 +37,7 @@ end
 def edit
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
-  # @doctors = Doctor.all
+  @doctors = Doctor.all
 end
 
 def update
@@ -47,6 +47,14 @@ def update
   redirect_to root_path
 end
 
+def destroy
+  @hospital = Hospital.find params[:hospital_id]
+  @patient = Patient.find params[:id]
+  @patient.delete
+  redirect_to :back
+
+end
+
 def patient_params
   params.require(:patient).permit(
     :first_name,
@@ -54,7 +62,10 @@ def patient_params
     :date_of_birth,
     :description,
     :blood_type,
-    :gender
+    :gender,
+    patient_ids: [],
+    doctor_ids: [],
+    # hospital_ids: []
     )
   end
 

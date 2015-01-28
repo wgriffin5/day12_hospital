@@ -21,8 +21,6 @@
     <%=check_box_tag 'hospital[doctor_ids][]', d.id, @hospital.doctors.include?(d) %>
     <%= d.name %>
 
-
-
   <% end %>
 
   <%= h.submit %>

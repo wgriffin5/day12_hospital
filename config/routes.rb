@@ -3,30 +3,33 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'hospital#index'
-  resources :doctors do
-    member do
-      post :create_rating
-    end
+root 'hospital#index'
+resources :hospitals do
+  member do
+    post :create_rating
+  end 
+  resources :patients 
+end
+resources :medications
+  
+resources :doctors do
+  member do
+    post :create_rating
   end
-  resources :hospitals
-  resources :patients
-  resources :visits
-  resources :medications
+end
+  # resources :hospitals
+  # resources :patients
+  # resources :visits
+  
 
-  resources :hospitals do
-    member do
-      post :create_rating
-    end
-    resources :patients
-  end
-  resources :doctors do
-    resources :hospitals do 
-      resources :patients do
-        resources :medications
-      end
-    end
-  end
+  
+  # resources :doctors do
+    # resources :hospitals do 
+      # resources :patients do
+        # resources :medications
+      # end
+    # end
+  # end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -2,9 +2,10 @@ class MedicationsController < ApplicationController
 
 
 def index
-  @hospital = Hospital.find params[:hospital_id]
-  @patients = @hospital.patients
-  @medications = @patient.medications 
+  @medications
+  # @hospital = Hospital.find params[:hospital_id]
+  # @patients = @hospital.patients
+  # @medications = @patient.medications 
 
   # @patient = Patient.find params[:patient_id]
   # @medications = @patient.medications
@@ -12,7 +13,7 @@ end
 
 def new
   @hospital = Hospital.find params[:hospital_id]
-  @patient = @hospital.patient.
+  @patient = @hospital.patient
   @medication = @patient.medication.new
 
   # @patient = Patient.find params[:patient_id]
@@ -30,6 +31,7 @@ def create
     else
       flash[:error] = 'Medication NOT added successfully'
       render :new
+    end
 
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medication.create medication_params   
@@ -65,7 +67,7 @@ def medication_params
       :name,
       :description,
       :patient_id,
-      :hospital_id
+      :hospital_id,
       :cost,
       :created_at,
       :updated_at

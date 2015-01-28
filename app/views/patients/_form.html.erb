@@ -26,6 +26,13 @@
   <%= label :gender, 'Female' %>
 
     <br>
+
+<% @doctors.each do |d| %>
+    <%=check_box_tag 'patient[doctor_ids][]', d.id, @patient.doctors.include?(d) %>
+    <%= d.name %>
+
+  <% end %>
+
   <%=f.submit %>
 
 <% end %> 

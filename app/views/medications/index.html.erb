@@ -9,7 +9,7 @@
 <% @medications.each do |medication| %>
 
 <%= link_to "View Medication",
-  hospital_patients_medication_path(@hospital, patient, medication) %>
+  medication_path(@hospital, patient, medication) %>
 
 ID: <%= medication.id %>
 Name: <%= medication.name %>
@@ -25,7 +25,7 @@ Update Date: <%= medication.updated_at %>
 <%= link_to "Return",
   patients_path %>
 
-
+<%= link_to :back %>
 
 
 
