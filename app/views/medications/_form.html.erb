@@ -1,7 +1,7 @@
  <%= link_to "Home", root_path %>
 
 
- <%form_for [@hospital, @patient, @medication] do |m|
+ <%form_for [@medication] do |m| %>
 
   <%= m.label :id %>
   <%= m.text_field :id %>

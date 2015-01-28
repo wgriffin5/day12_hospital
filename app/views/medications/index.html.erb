@@ -1,5 +1,5 @@
 <%= link_to "Add Medication",
-  new_hospital_patient_medication_path(@patient) %>
+  new_medication_path(@patient) %>
 
       <br>
 <h4> Existing Medications:</h4>
@@ -22,10 +22,9 @@ Update Date: <%= medication.updated_at %>
 
 <% end %>
 
-<%= link_to "Return",
-  patients_path %>
+<%= link_to :back  %>
 
-<%= link_to :back %>
+
 
 
 

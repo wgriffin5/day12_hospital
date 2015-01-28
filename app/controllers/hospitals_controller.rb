@@ -2,6 +2,7 @@ class HospitalsController < ApplicationController
 
 def index
   @hospitals = Hospital.all
+  @medications = Medication.all
 
 end 
 

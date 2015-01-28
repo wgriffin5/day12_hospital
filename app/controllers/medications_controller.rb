@@ -2,19 +2,24 @@ class MedicationsController < ApplicationController
 
 
 def index
-  @medications
-  # @hospital = Hospital.find params[:hospital_id]
+
+  # @hospitals = Hospital.find params[:hospital_id]
   # @patients = @hospital.patients
-  # @medications = @patient.medications 
+  @medications = Medication.all 
 
   # @patient = Patient.find params[:patient_id]
   # @medications = @patient.medications
 end
 
+def add
+  @medications = Medication.all
+end
+
 def new
-  @hospital = Hospital.find params[:hospital_id]
-  @patient = @hospital.patient
-  @medication = @patient.medication.new
+  @medication = Medication.new
+  # @hospital = Hospital.find params[:hospital_id]
+  # @patient = @hospital.patient
+  # @medication = @patient.medication.new
 
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medication.new

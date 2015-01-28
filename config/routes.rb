@@ -8,14 +8,16 @@ resources :hospitals do
   member do
     post :create_rating
   end 
-  resources :patients 
 end
+resources :patients 
+
 resources :medications
   
 resources :doctors do
   member do
     post :create_rating
   end
+end
 end
   # resources :hospitals
   # resources :patients
@@ -78,4 +80,4 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
