@@ -6,17 +6,19 @@ def index
   # @hospitals = Hospital.find params[:hospital_id]
   # @patients = @hospital.patients
   @medications = Medication.all 
-
+  # @medication = 
   # @patient = Patient.find params[:patient_id]
-  # @medications = @patient.medications
+  # @medication = @patient.medications
 end
 
-def add
-  @medications = Medication.all
-end
+# def add
+#   @medications = Medication.all
+# end
 
 def new
+  @medications = Medication.all
   @medication = Medication.new
+
   # @hospital = Hospital.find params[:hospital_id]
   # @patient = @hospital.patient
   # @medication = @patient.medication.new

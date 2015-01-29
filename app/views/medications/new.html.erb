@@ -1,4 +1,10 @@
-<h1>newmedication!!!</h1>
+<h1>Ajouter meds ici</h1>
+
+<% link_to ":back" %>
+
+<%= render 'form' %>
+
+
 
 <% if @medication.errors.any? %>
   <% @patient.errors.full_messages.each do |message| %>
@@ -8,6 +14,7 @@
   <br>
 <% end %>
 <% end %>
+
 
 <%= link_to "Home", root_path %>
 

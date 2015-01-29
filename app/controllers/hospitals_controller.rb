@@ -6,6 +6,7 @@ def index
 
 end 
 
+
 def new
   @hospital = Hospital.new
   @doctors = Doctor.all
