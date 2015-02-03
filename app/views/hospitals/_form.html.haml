@@ -1,0 +1,23 @@
+= form_for @hospital do |h|
+  = h.label :name
+  = h.text_field :name
+  %br/
+  = h.label :address
+  = h.text_field :address
+  %br/
+  = h.label :city
+  = h.text_field :city
+  %br/
+  = h.label :state
+  = h.select :state, options_for_select(Hospital::STATE_OPTIONS), include_blank: "---STATE---"
+  %br/
+  = h.label :zip
+  = h.text_field :zip
+  %br/
+  = h.label :specialty
+  = h.text_field :specialty
+  %br/
+  - @doctors.each do |d|
+    = check_box_tag 'hospital[doctor_ids][]', d.id, @hospital.doctors.include?(d)
+    = d.name
+  = h.submit

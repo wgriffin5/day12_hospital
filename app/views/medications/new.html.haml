@@ -1,0 +1,9 @@
+%h1 Ajouter meds ici
+- link_to ":back"
+= render 'form'
+- if @medication.errors.any?
+  - @patient.errors.full_messages.each do |message|
+    %p= message
+    %br/
+= link_to "Home", root_path
+- render 'form'

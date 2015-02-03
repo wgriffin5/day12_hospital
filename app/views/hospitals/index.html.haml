@@ -1,0 +1,21 @@
+%h1 Hospitals
+%br
+= link_to "ADD NEW Hospital", new_hospital_path
+%br
+%br
+- @hospitals.each do |h|
+  = link_to "View", hospital_path(h)
+  Name:    #{h.name}
+  %br
+  Address:    #{h.address}
+  %br
+  City:    #{h.city}
+  %br
+  State:    #{h.state}
+  %br
+  Zip:    #{h.zip}
+  %br
+  Specialty:    #{h.specialty}
+  %br
+  %br
+  

@@ -1,0 +1,24 @@
+= link_to "Add Patient", new_hospital_patient_path(@hospital)
+%br
+%h2 Existing Patients:
+%br
+- @patients.each do |patient|
+  = link_to "View Patient", hospital_patient_path(patient)
+  %br
+
+  First Name: #{patient.first_name}
+  %br
+  Last Name: #{patient.last_name}
+  %br
+  Date of Birth: #{patient.date_of_birth}
+  %br
+  Description: #{patient.description}
+  %br
+  Gender: #{patient.gender}
+  %br
+  Blood Type: #{patient.blood_type}
+  %br
+  %br
+  = link_to "Return", hospitals_path
+  %br
+  %br

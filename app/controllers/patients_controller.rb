@@ -1,9 +1,54 @@
 class PatientsController < ApplicationController
 
+before_action :set_patient, only: [
+  :show,
+  :edit,
+  :update,
+  :destroy,
+  :wait_patient,
+  :check_up_patient,
+  :x_ray_patient,
+  :surgery_patient,
+  :bills_patient,
+  :leave_patient
+]
+
+def wait_patient
+  @patient.wait!
+  redirect_to patients_path 
+end
+
+def check_up_patient
+  @patient.check_up!
+  redirect_to patients_path
+end
+
+
+def x_ray_patient
+  @patient.x_ray!
+  redirect_to patients_path
+end
+
+def surgery_patient
+  @patient.surgery!
+  redirect_to patients_path
+end
+
+def bills_patient
+  @patient.bills!
+  redirect_to patients_path
+end
+
+def leave_patient
+  @patient.leave!
+  redirect_to patients_path
+end
+
+
 def index
   @patients = Patient.all 
-  # @hospital = Hospital.find params[:hospital_id]
-  # @patients = @hospital.patients
+  @hospital = Hospital.find params[:hospital_id]
+  # @patient = @hospital.patients
 
 end
 
@@ -26,7 +71,6 @@ def create
     render :new
   end
 end
-
 
 
 def show
@@ -56,6 +100,12 @@ def destroy
 
 end
 
+private 
+
+def set_patient
+  @patient = Patient.find(params[:id])
+end
+
 def patient_params
   params.require(:patient).permit(
     :first_name,
@@ -66,7 +116,7 @@ def patient_params
     :gender,
     patient_ids: [],
     doctor_ids: [],
-    # hospital_ids: []
+    hospital_ids: []
     )
   end
 

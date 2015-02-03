@@ -3,25 +3,23 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root 'hospital#index'
-resources :hospitals do
-  member do
-    post :create_rating
-  end 
-end
-resources :patients 
+  root 'hospital#index'
+  resources :hospitals do
+    member do
+      post :create_rating
+    end 
+    resources :patients
+  end
 
-resources :medications
+  resources :medications
   
-resources :doctors do
-  member do
-    post :create_rating
+  resources :doctors do
+    member do
+      post :create_rating
+    end
   end
 end
-end
-  # resources :hospitals
-  # resources :patients
-  # resources :visits
+  
   
 
   
