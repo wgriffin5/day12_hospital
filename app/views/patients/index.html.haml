@@ -3,7 +3,7 @@
 %h2 Existing Patients:
 %br
 - @patients.each do |patient|
-  = link_to "View Patient", hospital_patient_path(patient)
+  = link_to "View Patient", hospital_patient_path(@hospital, patient)
   %br
 
   First Name: #{patient.first_name}
