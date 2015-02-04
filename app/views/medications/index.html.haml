@@ -1,21 +1,31 @@
-%br/
-%br/
-= link_to "Add Medication",     |
-  new_medication_path(@patient) |
-%br/
-%h4 Existing Medications:
-%br/
-= render 'form'
-- @medications.each do |medication|
-  = link_to "View Medication",                      |
-    medication_path(@hospital, patient, medication) |
-  ID: #{medication.id}
-  Name: #{medication.name}
-  Description: #{medication.description}
-  Patient ID: #{medication.patient_id}
-  Hospital ID:
-  - medication.hospital_id
-  Cost: #{medication.cost}
-  Creation Date: #{medication.created_at}
-  Update Date: #{medication.updated_at}
+%br
+%h1
+All Medications
+%br
 = link_to :back
+=link_to "Create Medication", new_medication_path
+
+%br
+ 
+/ = render 'form'
+- @medications.each do |medication|
+  = link_to "View Medication", medication_path(medication) 
+  ID: 
+  = "#{medication.id}"
+  Name: 
+  ="#{medication.name}"
+  / Description: 
+  / ="#{medication.description}"
+  / Patient ID:
+  / ="#{medication.patient_id}"
+  / Hospital ID:
+  / ="#{medication.hospital_id}"
+  / Price: 
+  / = "#{medication.cost}"
+  / Creation Date:
+  / ="#{medication.created_at}"
+  / Update Date:
+  / ="#{medication.updated_at}"
+  
+
+ 

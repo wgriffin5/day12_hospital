@@ -19,6 +19,18 @@ Gender:
 Blood Type:
 = @patient.blood_type
 %br
+Patient Medications:
+= @patient.medications.inspect
+%br
 =link_to "Edit", edit_hospital_patient_path 
 %br
 =link_to "Delete", hospital_patient_path
+%br 
+/ =link_to "View Medications", medications_path(@hospital, @patient)
+/ - @medication.each do |m|
+
+
+
+
+
+

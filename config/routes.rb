@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post :create_rating
     end 
     resources :patients
+    
   end
 
   resources :medications

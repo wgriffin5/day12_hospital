@@ -6,9 +6,11 @@ def index
   # @hospitals = Hospital.find params[:hospital_id]
   # @patients = @hospital.patients
   @medications = Medication.all 
-  # @medication = 
+  # @hospital = Hospital.find params[:hospital_id]
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medications
+  # @patient = Patient.find params[:patient_id]
+  # @medication = Medication.find params[:medication_id]
 end
 
 # def add
@@ -28,16 +30,18 @@ def new
 end
 
 def create 
-  @hospital = Hospital.find params[:hospital_id]
-  @patient = @hospital.patient
-  @medication = @hospital.patient.medication.create medication_params
-    if @medication.save
-      flash[:notice] = 'Medication added.'
-      @patient = Patient.find params[:patient_id]
-      redirect_to hospital_patient_medications_path(@hospital,@patient,@medication)
-    else
-      flash[:error] = 'Medication NOT added successfully'
-      render :new
+  # @hospital = Hospital.find params[:hospital_id]
+  # @patient = @hospital.patient
+
+  @medication = Medication.create medication_params
+  redirect_to medications_path
+    # if @medication.save
+    #   flash[:notice] = 'Medication added.'
+    #   @patient = Patient.find params[:patient_id]
+    #   redirect_to hospital_patient_medications_path(@hospital,@patient,@medication)
+    # else
+    #   flash[:error] = 'Medication NOT added successfully'
+    #   render :new
     end
 
   # @patient = Patient.find params[:patient_id]
@@ -45,11 +49,12 @@ def create
 end
 
 def show
-  @hospital = Hospital.find params[:hospital_id]
-  @patient = Patient.find params[:patient_id]
-  @medication = Medication.find params[:id]
-  # @patient = Patient.find params[:patient_id]
+  # @hospital = Hospital.find params(:hospital_id)
+  # @patient = Patient.find params[:id]
   # @medication = Medication.find params[:id]
+  # @patient = Patient.find params[:patient_id]
+  # @medications = @patient.medications
+  @medication = Medication.find params[:id]
 end
 
 def edit
@@ -79,5 +84,4 @@ def medication_params
       :created_at,
       :updated_at
 )
-end
 end

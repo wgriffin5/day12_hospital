@@ -48,7 +48,7 @@ end
 def index
   @patients = Patient.all 
   @hospital = Hospital.find params[:hospital_id]
-  # @patient = @hospital.patients
+  # @medication = Medication.find params[:medication_id]
 
 end
 
@@ -56,6 +56,7 @@ def new
   @hospital = Hospital.find params[:hospital_id]
   @patient = @hospital.patients.new
   @doctors = Doctor.all
+  @medications = Medication.all
 end 
 
 
@@ -83,6 +84,7 @@ def edit
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
   @doctors = Doctor.all
+  @medications = Medication.all
 end
 
 def update

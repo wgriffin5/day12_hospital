@@ -40,9 +40,11 @@ include Workflow
   end
     
 belongs_to :hospital 
-has_many :medications
+has_many :medications, through: :patient_medications
+has_many :patient_medications
 has_many :doctors, through: :patient_doctors
 has_many :patient_doctors
+
 
 BLOOD_TYPE_OPTIONS = [
   "A+",
