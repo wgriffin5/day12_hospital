@@ -16,5 +16,7 @@
 %br
 = @medication.updated_at
 %br
+= link_to "Edit", edit_medication_path(@medication)
 %br
+= link_to "Delete", medication_path(@medication), method: :delete
 %br

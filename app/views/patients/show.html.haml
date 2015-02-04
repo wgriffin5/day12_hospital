@@ -26,8 +26,17 @@ Patient Medications:
 %br
 =link_to "Delete", hospital_patient_path
 %br 
-/ =link_to "View Medications", medications_path(@hospital, @patient)
-/ - @medication.each do |m|
+
+Patient Status:
+= (@patient.workflow_state)
+  - if @patient.waiting? 
+    =link_to "Check Up",patient_checking_up_hospital_patient_path(@patient), method: :patch
+    =link_to "X-Ray", patient_x_raying_hospital_patient_path(@patient), method: :patch
+    =link_to 
+
+
+
+
 
 
 

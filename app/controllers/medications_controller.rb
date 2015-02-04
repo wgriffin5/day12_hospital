@@ -32,7 +32,6 @@ end
 def create 
   # @hospital = Hospital.find params[:hospital_id]
   # @patient = @hospital.patient
-
   @medication = Medication.create medication_params
   redirect_to medications_path
     # if @medication.save
@@ -42,11 +41,11 @@ def create
     # else
     #   flash[:error] = 'Medication NOT added successfully'
     #   render :new
-    end
+end
 
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medication.create medication_params   
-end
+
 
 def show
   # @hospital = Hospital.find params(:hospital_id)
@@ -58,30 +57,38 @@ def show
 end
 
 def edit
-  @hospital = Hospital.find params[:hospital_id]
-  @patient = Patient.find params[:patient]
-  @medication = Medication.find params [:id]
-
+  # @hospital = Hospital.find params[:hospital_id]
+  # @patient = Patient.find params[:patient]
+  @medication = Medication.find params[:id]
   # @patient = Patient.find params[:patient_id]
   # @medication = Medication.find params[:id]
 end
 
 def update
-  @hospital = Hospital.find params[:hospital_id]
-  @patient = Patient.find params[:id]
-  @medication.update_attributes patient_params
-  redirect_to root_path
+  # @hospital = Hospital.find params[:hospital_id]
+  # @patient = Patient.find params[:id]
+  @medication = Medication.find params[:id]
+  @medication.update_attributes medication_params
+  redirect_to medications_path
 end
 
-def medication_params 
-  params.require(:medication).permit(
-      :id,
-      :name,
-      :description,
-      :patient_id,
-      :hospital_id,
-      :cost,
-      :created_at,
-      :updated_at
-)
-end
+def destroy
+  @medication = Medication.find params[:id]
+  @medication.delete 
+  redirect_to medications_path
+end 
+private 
+
+  def medication_params 
+    params.require(:medication).permit(
+        :id,
+        :name,
+        :description,
+        :patient_id,
+        :hospital_id,
+        :cost,
+        :created_at,
+        :updated_at
+  )
+  end
+end 

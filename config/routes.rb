@@ -8,8 +8,16 @@ Rails.application.routes.draw do
     member do
       post :create_rating
     end 
-    resources :patients
-    
+    resources :patients do
+      member do
+        patch :patient_waiting
+        patch :patient_checking_up
+        patch :patient_x_raying
+        patch :patient_surged
+        patch :patient_billing
+        patch :leaving
+      end
+    end
   end
 
   resources :medications
