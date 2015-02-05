@@ -5,20 +5,15 @@
 - @patients.each do |patient|
   = link_to "View Patient", hospital_patient_path(@hospital, patient)
   %br
-
-  First Name: #{patient.first_name}
+  First Name: 
+  = patient.first_name
   %br
-  Last Name: #{patient.last_name}
+  Last Name:
+  = patient.last_name
   %br
-  Date of Birth: #{patient.date_of_birth}
+  Patient Status: 
   %br
-  Description: #{patient.description}
+  = patient.workflow_state
   %br
-  Gender: #{patient.gender}
-  %br
-  Blood Type: #{patient.blood_type}
-  %br
-  %br
-  = link_to "Return", hospitals_path
-  %br
-  %br
+  %br 
+  

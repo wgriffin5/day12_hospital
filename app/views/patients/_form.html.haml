@@ -1,50 +1,46 @@
 = link_to "Home", root_path
 = link_to "Back", :back
+%br
 = form_for [@hospital, @patient] do |f|
+  
+  %br
   = f.label :first_name
   = f.text_field :first_name
-  %br/
+  %br
   = f.label :last_name
   = f.text_field :last_name
-  %br/
-  = f.label :date_of_birth, min: "1900-01-01"
-  = f.date_field :date_of_birth
-  %br/
+  %br
+  = f.label :date_of_birth 
+  = f.date_field :date_of_birth, min: "1900-01-01", max: Time.now
+  %br
   = f.label :description
   = f.text_field :description
-  %br/
+  %br
   = f.label :blood_type
   = f.select :blood_type, options_for_select(Patient:: |
     BLOOD_TYPE_OPTIONS, f.object)                      |
-  %br/
+  %br
   = f.label :gender
   = f.radio_button :gender, 'Male', :checked => true
   = label :gender, 'Male'
   = f.radio_button :gender, 'Female'
   = label :gender, 'Female'
-  %br/
+  %br
+
+  Doctor:
+  %br
   - @doctors.each do |d|
     = check_box_tag 'patient[doctor_ids][]', d.id, @patient.doctors.include?(d)
     = d.name
-  - @medications.each do |m|
-    = check_box_tag 'patient[medication_ids][]', m.id, @patient.medications.include?(m)
-    = m.name
+    %br
+
+  Medications:
+  %br
+  - if @medications.length > 0
+  - @medications.each do |h|
+    = check_box_tag 'patient[medication_ids][]', h.id, @patient.medications.include?(h)
+    = h.name
+    %br
+    %br
+    %br
   = f.submit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

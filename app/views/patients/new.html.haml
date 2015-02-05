@@ -1,8 +1,9 @@
 %h1 newpatient!!!!
 - if @patient.errors.any?
-  - @patient.errors.full_messages.each do |
-  - message|
+  - @patient.errors.full_messages.each do |message|
+
     %p= message
-    %br/
+    %br
+    
 = link_to "Home", root_path
 = render 'form'

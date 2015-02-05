@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem 'quiet_assets'
 gem 'erb2haml'
 gem 'html2haml'
 gem 'workflow'

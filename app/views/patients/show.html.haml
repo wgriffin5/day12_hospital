@@ -1,8 +1,9 @@
 =link_to "Home", root_path
 
 %br
+
 First Name: 
-=@patient.first_name
+= @patient.first_name
 %br
 Last Name:
 = @patient.last_name
@@ -19,27 +20,44 @@ Gender:
 Blood Type:
 = @patient.blood_type
 %br
-Patient Medications:
-= @patient.medications.inspect
+Medications:
+= @patient.medications
 %br
+Physician:
+= @patient.doctors
+%br
+%br
+Status:
+#{@patient.workflow_state.capitalize.humanize}
+  
+
+- if @patient.waiting? 
+  =link_to "Check Up", patient_checking_up_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "X-Ray", patient_x_raying_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Leaving",leaving_hospital_patient_path(@hospital, @patient), method: :patch
+
+- if @patient.checking_up?
+  =link_to "X-Ray", patient_x_raying_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Leaving",leaving_hospital_patient_path(@hospital, @patient), method: :patch
+
+- if @patient.x_raying?
+  =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
+  =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
+
+- if @patient.surged?
+  =link_to "Billing", patient_billing_hospital_patient_path(@patient), method: :patch
+  
+- if @patient.billing? 
+  =link_to "Leaving", leaving_hospital_patient_path(@patient), method: :patch
+
+%br
+%br
+
 =link_to "Edit", edit_hospital_patient_path 
 %br
 =link_to "Delete", hospital_patient_path
-%br 
-
-Patient Status:
-= (@patient.workflow_state)
-  - if @patient.waiting? 
-    =link_to "Check Up",patient_checking_up_hospital_patient_path(@patient), method: :patch
-    =link_to "X-Ray", patient_x_raying_hospital_patient_path(@patient), method: :patch
-    =link_to 
-
-
-
-
-
-
-
-
-
 

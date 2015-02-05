@@ -2,8 +2,6 @@
 = link_to :back
 
 = form_for @medication do |m|
-  = m.label :id
-  = m.text_field :id
   %br
   = m.label :name
   = m.text_field :name
@@ -11,21 +9,11 @@
   = m.label :description
   = m.text_field :description
   %br
-  = m.label :patient_id
-  = m.text_field :patient_id
-  %br
-  = m.label :hospital_id
-  = m.text_field :hospital_id
-  %br
   = m.label :cost
   = m.text_field :cost
   %br
-  = m.label :created_at
-  = m.text_field :created_at
-  %br
-  = m.label :updated_at
-  = m.text_field :updated_at
   = m.submit
+  
 
 
 

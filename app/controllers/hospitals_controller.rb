@@ -27,6 +27,7 @@ end
 
 def show 
   @hospital = Hospital.find params[:id]
+  @patients = @hospital.patients
   @doctors = @hospital.doctors
   @ratings = @hospital.ratings
   @rating = Rating.new

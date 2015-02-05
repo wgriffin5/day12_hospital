@@ -13,43 +13,53 @@ before_action :set_patient, only: [
   :leave_patient
 ]
 
-def wait_patient
+def patient_wait
+  set_patient
   @patient.wait!
-  redirect_to patients_path 
+  redirect_to hospital_patients_path(@patient) 
 end
 
-def check_up_patient
+def patient_checking_up
+  set_patient
   @patient.check_up!
-  redirect_to patients_path
+  redirect_to hospital_patients_path(@patient)
 end
 
 
-def x_ray_patient
+def patient_x_raying
+  set_patient
   @patient.x_ray!
-  redirect_to patients_path
+  redirect_to hospital_patients_path(@patient)
 end
 
-def surgery_patient
+def patient_surged
+  set_patient
   @patient.surgery!
-  redirect_to patients_path
+  redirect_to hospital_patients_path(@patient)
 end
 
-def bills_patient
+def patient_billing
+  set_patient
   @patient.bills!
-  redirect_to patients_path
+  redirect_to hospital_patients_path(@patient)
 end
 
-def leave_patient
+def patient_leaving
+  set_patient
   @patient.leave!
-  redirect_to patients_path
+  redirect_to hospital_patients_path(@patient)
+end
+
+def set_patient
+  @patient = Patient.find(params[:id])
 end
 
 
 def index
-  @patients = Patient.all 
   @hospital = Hospital.find params[:hospital_id]
+  @patients = @hospital.patients 
+  
   # @medication = Medication.find params[:medication_id]
-
 end
 
 def new
@@ -57,10 +67,13 @@ def new
   @patient = @hospital.patients.new
   @doctors = Doctor.all
   @medications = Medication.all
+  @patients = Patient.all
 end 
 
 
 def create 
+  @medications = Medication.all
+  @doctors = Doctor.all
   @hospital = Hospital.find params[:hospital_id]
   @patient = @hospital.patients.create patient_params
   if @patient.save
@@ -78,13 +91,18 @@ def show
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
   @doctors = @patient.doctors
+  @medication = @patient.medications
+  @medications = Medication.all
+  @hospitals = Hospital.all
 end
 
 def edit
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
-  @doctors = Doctor.all
+  @doctors = @patient.doctors
+  @patients = Patient.all
   @medications = Medication.all
+  @hospitals = Hospital.all 
 end
 
 def update
@@ -99,14 +117,10 @@ def destroy
   @patient = Patient.find params[:id]
   @patient.delete
   redirect_to :back
-
 end
 
 private 
 
-def set_patient
-  @patient = Patient.find(params[:id])
-end
 
 def patient_params
   params.require(:patient).permit(
