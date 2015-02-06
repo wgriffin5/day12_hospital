@@ -2,10 +2,9 @@
 = link_to "Back", :back
 %br
 = form_for [@hospital, @patient] do |f|
-  
   %br
   = f.label :first_name
-  = f.text_field :first_name
+  = f.text_field :first_name, class: "form-control"
   %br
   = f.label :last_name
   = f.text_field :last_name
@@ -36,11 +35,12 @@
 
   Medications:
   %br
-  - if @medications.length > 0
+  / - if @medications.length > 0
   - @medications.each do |h|
     = check_box_tag 'patient[medication_ids][]', h.id, @patient.medications.include?(h)
     = h.name
     %br
     %br
     %br
-  = f.submit
+  = f.submit 
+  / class: "submit-button", disabled: "disabled"

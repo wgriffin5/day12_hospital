@@ -1,21 +1,27 @@
 %br
 %br
-Name:        #{@hospital.name}
+Name:
+= @hospital.name
 %br
 %br
-Address:     #{@hospital.address}
+Address:
+= @hospital.address
 %br
 %br
-City:     #{@hospital.city}
+City:     
+= @hospital.city
 %br
 %br
-State:     #{@hospital.state}
+State:
+= @hospital.state
 %br
 %br
-Zip:     #{@hospital.zip}
+Zip:
+= @hospital.zip
 %br
 %br
-Specialty:     #{@hospital.specialty}
+Specialty:     
+= @hospital.specialty
 %br
 %br
 = form_for @rating, url: create_rating_hospital_path(@hospital) do |r|
@@ -26,12 +32,15 @@ Specialty:     #{@hospital.specialty}
   = r.text_field :comment
   %br
   = r.submit
-= @ratings.each do |r|
+- @ratings.each do |r|
   = r.score
   = r.comment
-  - br
+  %br
+
 = link_to "Edit Hospital", edit_hospital_path(@hospital)
+%br
 = link_to "Delete Hospital", hospital_path(@hospital), method: :delete
+%br
 = form_for @rating, url: create_rating_hospital_path(@hospital) do |f|
   = f.label :score
   = f.text_field :score
@@ -40,4 +49,15 @@ Specialty:     #{@hospital.specialty}
   = f.text_field :comment
   %br
   = f.submit
+  %br
 = link_to "View Patients", hospital_patients_path(@hospital)
+
+
+
+
+
+
+
+
+
+

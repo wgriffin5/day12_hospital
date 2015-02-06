@@ -21,10 +21,13 @@ Blood Type:
 = @patient.blood_type
 %br
 Medications:
-= @patient.medications
+- @patient.medications.each do |m|
+  = m.name
+
 %br
 Physician:
 = @patient.doctors
+#{@patient.doctors}
 %br
 %br
 Status:
@@ -49,15 +52,15 @@ Status:
   =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
 
 - if @patient.surged?
-  =link_to "Billing", patient_billing_hospital_patient_path(@patient), method: :patch
+  =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
   
 - if @patient.billing? 
-  =link_to "Leaving", leaving_hospital_patient_path(@patient), method: :patch
+  =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
 
 %br
 %br
 
 =link_to "Edit", edit_hospital_patient_path 
 %br
-=link_to "Delete", hospital_patient_path
+=link_to "Delete", hospital_patient_path, method: :delete 
 

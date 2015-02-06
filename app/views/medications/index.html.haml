@@ -3,17 +3,21 @@
 All Medications
 %br
 = link_to :back
+%br 
 =link_to "Create Medication", new_medication_path
 
 %br
- 
+%br 
 / = render 'form'
 - @medications.each do |medication|
   = link_to 'View Medication', medication_path(medication) 
-  ID: 
-  = "#{medication.id}"
+  / ID: 
+  / = "#{medication.id}"
+  %br
   Name: 
   ="#{medication.name}"
+  %br
+  %br
   / Description: 
   / ="#{medication.description}"
   / Patient ID:

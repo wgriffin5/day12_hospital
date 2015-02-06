@@ -88,7 +88,8 @@ private
         :hospital_id,
         :cost,
         :created_at,
-        :updated_at
+        :updated_at,
+        patient_ids: []
   )
   end
 end 

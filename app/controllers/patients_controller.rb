@@ -44,22 +44,22 @@ def patient_billing
   redirect_to hospital_patients_path(@patient)
 end
 
-def patient_leaving
+def patient_leave
   set_patient
   @patient.leave!
   redirect_to hospital_patients_path(@patient)
 end
 
 def set_patient
-  @patient = Patient.find(params[:id])
-end
+  @patient = Patient.find params[:id]
+end 
 
 
 def index
+  # @hospitals = Hospital.all
   @hospital = Hospital.find params[:hospital_id]
   @patients = @hospital.patients 
-  
-  # @medication = Medication.find params[:medication_id]
+  # @patient. Patient.find params[:patient_id]
 end
 
 def new
@@ -109,14 +109,14 @@ def update
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
   @patient.update_attributes patient_params
-  redirect_to root_path
+  redirect_to hospital_patients_path
 end
 
 def destroy
   @hospital = Hospital.find params[:hospital_id]
-  @patient = Patient.find params[:id]
+  @patient = @hospital.patients.find params[:id]
   @patient.delete
-  redirect_to :back
+  redirect_to hospital_patients_path
 end
 
 private 
@@ -132,7 +132,8 @@ def patient_params
     :gender,
     patient_ids: [],
     doctor_ids: [],
-    hospital_ids: []
+    hospital_ids: [],
+    medication_ids: []
     )
   end
 
