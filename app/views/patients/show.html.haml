@@ -26,8 +26,11 @@ Medications:
 
 %br
 Physician:
-= @patient.doctors
-#{@patient.doctors}
+- @patient.doctors.each do |d|
+  = d.name
+%br
+/ = @patient.doctors
+/ #{@patient.doctors}
 %br
 %br
 Status:
@@ -56,6 +59,8 @@ Status:
   
 - if @patient.billing? 
   =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
+
+
 
 %br
 %br

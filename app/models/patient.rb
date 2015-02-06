@@ -14,28 +14,28 @@ include Workflow
       event :leave, :transitions_to => :leaving
     end
     state :checking_up do
-      # event :check_up, :transitions_to => :checking_up
+      event :check_up, :transitions_to => :checking_up
       event :x_ray, :transitions_to => :x_raying
       event :surgery, :transitions_to => :surged
       event :bills, :transitions_to => :billing
       event :leave, :transitions_to => :leaving
     end
     state :x_raying do
-      # event :x_ray, :transitions_to => :x_raying
+      event :x_ray, :transitions_to => :x_raying
       event :surgery, :transitions_to => :surged
       event :bills, :transitions_to => :billing
       event :leave, :transitions_to => :leaving
     end
     state :surged do
-      # event :surgery, :transitions_to => :surged
+      event :surgery, :transitions_to => :surged
       event :bills, :transitions_to => :billing
     end
     state :billing do
-      # event :bills, :transitions_to => :billing
+      event :bills, :transitions_to => :billing
       event :leave, :transitions_to => :leaving
     end
     state :leaving do
-    # event :leave, :transitions_to => :leaving
+      event :leave, :transitions_to => :leaving
     end
   end
     

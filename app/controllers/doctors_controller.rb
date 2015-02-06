@@ -56,7 +56,8 @@ def doctor_params
     :doctorable_id,
     :doctorable_type,
     doctor_ids: [],
-    hospital_ids: []
+    hospital_ids: [],
+    medications_ids: []
     )
 
 

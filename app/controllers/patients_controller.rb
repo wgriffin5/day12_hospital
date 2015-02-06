@@ -16,42 +16,43 @@ before_action :set_patient, only: [
 def patient_wait
   set_patient
   @patient.wait!
-  redirect_to hospital_patients_path(@patient) 
+  redirect_to hospital_patient_path(@hospital, @patient) 
 end
 
 def patient_checking_up
   set_patient
   @patient.check_up!
-  redirect_to hospital_patients_path(@patient)
+  redirect_to hospital_patient_path(@hospital, @patient)
 end
 
 
 def patient_x_raying
   set_patient
   @patient.x_ray!
-  redirect_to hospital_patients_path(@patient)
+  redirect_to hospital_patient_path(@hospital, @patient)
 end
 
 def patient_surged
   set_patient
   @patient.surgery!
-  redirect_to hospital_patients_path(@patient)
+  redirect_to hospital_patient_path(@hospital, @patient)
 end
 
 def patient_billing
   set_patient
   @patient.bills!
-  redirect_to hospital_patients_path(@patient)
+  redirect_to hospital_patient_path(@hospital, @patient)
 end
 
-def patient_leave
+def leaving
   set_patient
   @patient.leave!
-  redirect_to hospital_patients_path(@patient)
+  redirect_to hospital_patient_path(@hospital, @patient)
 end
 
 def set_patient
   @patient = Patient.find params[:id]
+  @hospital = Hospital.find @patient.hospital_id
 end 
 
 
@@ -99,7 +100,7 @@ end
 def edit
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
-  @doctors = @patient.doctors
+  @doctors = Doctor.all
   @patients = Patient.all
   @medications = Medication.all
   @hospitals = Hospital.all 
@@ -130,10 +131,12 @@ def patient_params
     :description,
     :blood_type,
     :gender,
+    :workflow_state,
     patient_ids: [],
     doctor_ids: [],
     hospital_ids: [],
-    medication_ids: []
+    medication_ids: [],
+
     )
   end
 
