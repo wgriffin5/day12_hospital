@@ -59,8 +59,15 @@ end
 def index
   # @hospitals = Hospital.all
   @hospital = Hospital.find params[:hospital_id]
-  @patients = @hospital.patients 
   # @patient. Patient.find params[:patient_id]
+  @patients = @hospital.patients 
+@patients = if !params[:q].blank?
+  Patient.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+else
+  puts "HEY WILLIAM"
+  Patient.all
+end.shuffle
+
 end
 
 def new
