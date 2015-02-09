@@ -3,13 +3,18 @@
 %h2 Existing Patients:
 %br
 
-  = form_tag hospital_patients_path, method: :get, class: "navbar-form", role: "search" do
-    .input-group 
-      = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
-        .input-group-btn
-          %button.btn.btn-default{:style => "width:40px;"}
-            %i.glyphicon.glyphicon-search
+= form_tag hospital_patients_path, method: :get, class: "navbar-form", role: "search" do
+  .input-group 
+  = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Patients"
+  =submit_tag "Search"
+
+
+/ .input-group-btn
+/   %button.btn.btn-default{:style => "width:40px;"}
+/     %i.glyphicon.glyphicon-search
+
 %br
+%br 
 - @patients.each do |patient|
   = link_to "View Patient", hospital_patient_path(@hospital, patient)
   %br
@@ -23,5 +28,3 @@
   %br
   = patient.workflow_state.capitalize
   %br
-  %br 
-  

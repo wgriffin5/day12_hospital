@@ -3,6 +3,12 @@ class HospitalsController < ApplicationController
 def index
   @hospitals = Hospital.all
   @medications = Medication.all
+  @hospitals = if !params[:q].blank?
+    Hospital.where("name LIKE ?", "%#{params[:q]}%")
+  else
+    puts "HEY WILLIAM"
+    Hospital.all
+  end.shuffle
 
 end 
 

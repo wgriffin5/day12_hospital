@@ -6,6 +6,12 @@ def index
   # @hospitals = Hospital.find params[:hospital_id]
   # @patients = @hospital.patients
   @medications = Medication.all 
+  @medications = if !params[:q].blank?
+    Medication.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+  else
+    puts "HEY WILLIAM"
+    Medication.all
+  end.shuffle
   # @hospital = Hospital.find params[:hospital_id]
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medications

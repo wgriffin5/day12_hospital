@@ -4,6 +4,10 @@
 All Doctors
 %br
 %br
+= form_tag doctors_path, method: :get, class: "navbar-form", role: "search" do
+  .input-group 
+  = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Doctors"
+  = submit_tag "Search"
 
 = link_to "Add Doctor", new_doctor_path
 %br

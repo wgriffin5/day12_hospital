@@ -25,7 +25,6 @@ def patient_checking_up
   redirect_to hospital_patient_path(@hospital, @patient)
 end
 
-
 def patient_x_raying
   set_patient
   @patient.x_ray!
@@ -60,14 +59,13 @@ def index
   # @hospitals = Hospital.all
   @hospital = Hospital.find params[:hospital_id]
   # @patient. Patient.find params[:patient_id]
-  @patients = @hospital.patients 
-@patients = if !params[:q].blank?
-  Patient.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-else
-  puts "HEY WILLIAM"
-  Patient.all
-end.shuffle
-
+  # @patients = @hospital.patients 
+  @patients = if !params[:q].blank?
+    Patient.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+  else
+    puts "HEY WILLIAM"
+    Patient.all
+  end.shuffle
 end
 
 def new
@@ -143,7 +141,6 @@ def patient_params
     doctor_ids: [],
     hospital_ids: [],
     medication_ids: [],
-
     )
   end
 

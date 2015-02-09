@@ -6,6 +6,10 @@ All Medications
 %br 
 =link_to "Create Medication", new_medication_path
 
+= form_tag medications_path, method: :get, class: "navbar-form", role: "search" do
+  .input-group 
+  = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Medications"
+  = submit_tag "Search"
 %br
 %br 
 / = render 'form'
