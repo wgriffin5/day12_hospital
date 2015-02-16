@@ -20,7 +20,7 @@ $(document).on('click', '.search-patients', function() {
   var search = $(".patient-search").val()
   $.ajax({
     type: 'GET',
-    url: '/hospitals/' + hospital_id + 'patients/search-results',
+    url: '/hospitals/' + hospital_id + '/patients/search_results',
     dataType: 'script',
     data: {q: search}
   });

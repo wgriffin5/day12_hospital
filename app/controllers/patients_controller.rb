@@ -61,6 +61,7 @@ def index
   #   Patient.where("last_name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   # else
   #   puts "HEY WILLIAM"
+  @hospital_id = params[:hospital_id]
   @patients = @hospital.patients
   # end
   respond_to do |format|
@@ -77,6 +78,16 @@ def new
   @patients = Patient.all
 end 
 
+def search_results
+  @hospital = Hospital.find params[:hospital_id]
+  @hospital_id = params[:hospital_id]
+  @patients = Patient.where("first_name LIKE ? OR last_name LIKE ? OR description LIKE ? AND hospital_id = ?" , "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "params[:hospital_id]")
+  p @patients
+  respond_to do |format|
+    format.js
+    format.html
+  end
+end
 
 def create 
   @medications = Medication.all

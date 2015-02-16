@@ -15,7 +15,8 @@
   %h3#notice= flash[:notice]
 - if flash[:error]
   %h3#error= flash[:error]
-= yield
+.body-content
+  = yield
 
 
 

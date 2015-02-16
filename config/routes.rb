@@ -17,6 +17,9 @@ Rails.application.routes.draw do
         patch :patient_billing
         patch :leaving
       end
+      collection do
+        get :search_results
+      end
     end
   end
 
