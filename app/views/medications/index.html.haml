@@ -11,7 +11,7 @@ All Medications
   = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Medications"
   = submit_tag "Search"
 %br
-%br 
+%br  
 / = render 'form'
 - @medications.each do |medication|
   = link_to 'View Medication', medication_path(medication) 

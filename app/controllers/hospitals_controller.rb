@@ -4,20 +4,19 @@ def index
   @hospitals = Hospital.all
   @medications = Medication.all
   @hospitals = if !params[:q].blank?
-    Hospital.where("name LIKE ?", "%#{params[:q]}%")
+    Hospital.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR specialty LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
   else
     puts "HEY WILLIAM"
     Hospital.all
   end.shuffle
-
-end 
+end
 
 
 def new
   @hospital = Hospital.new
   @doctors = Doctor.all
   
-  end
+end
 
 def create 
   @hospital = Hospital.create hospital_params

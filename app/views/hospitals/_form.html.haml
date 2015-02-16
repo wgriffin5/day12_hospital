@@ -18,6 +18,6 @@
   = h.text_field :specialty
   %br/
   - @doctors.each do |d|
-    = check_box_tag 'hospital[doctor_ids][]', d.id, @hospital.doctors.include?(d)
+    = check_box_tag 'hospital[doctor_ids[]', d.id, @hospital.doctors.include?(d)
     = d.name
   = h.submit
