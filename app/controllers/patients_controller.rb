@@ -16,37 +16,49 @@ before_action :set_patient, only: [
 def patient_wait
   set_patient
   @patient.wait!
-  redirect_to hospital_patient_path(@hospital, @patient) 
+  respond_to do |format|
+    format.js
+  end
 end
 
 def patient_checking_up
   set_patient
   @patient.check_up!
-  redirect_to hospital_patient_path(@hospital, @patient)
+  respond_to do |format|
+    format.js
+  end
 end
 
 def patient_x_raying
   set_patient
   @patient.x_ray!
-  redirect_to hospital_patient_path(@hospital, @patient)
+  respond_to do |format|
+    format.js
+  end
 end
 
 def patient_surged
   set_patient
   @patient.surgery!
-  redirect_to hospital_patient_path(@hospital, @patient)
+  respond_to do |format|
+    format.js
+  end
 end
 
 def patient_billing
   set_patient
   @patient.bills!
-  redirect_to hospital_patient_path(@hospital, @patient)
+  respond_to do |format|
+    format.js
+  end
 end
 
 def leaving
   set_patient
   @patient.leave!
-  redirect_to hospital_patient_path(@hospital, @patient)
+  respond_to do |format|
+    format.js
+  end
 end
 
 def set_patient
