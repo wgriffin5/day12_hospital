@@ -30,6 +30,7 @@ $(document).on('click', '.search-patients', function() {
 
 $(document).on('click', '.wait-patient', function(){
   console.log("wait")
+  var hospital_id ZZZZZZZZ
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
@@ -82,12 +83,16 @@ $(document).on('click', '.bills-patient', function(){
   });
 });
 
+
+ZZZZZZZZZZ
+
+
 $(document).on('click', '.leave-patient', function(){
   console.log("leave")
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
-    url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_billing',
+    url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/leaving_hospital',
     dataType: 'script'
   });
 

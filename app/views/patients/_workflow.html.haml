@@ -10,7 +10,7 @@ Patient Status:
   = link_to "Leaving", 'javascript:void(0);', class: 'leave-patient', patient_id: @patient.id
 %br
 - if @patient.checking_up?
-  = link_to "X Ray", 'javaxript:void(0);', class: 'x-ray-patient', patient_id: @patient.id
+  = link_to "X Ray", 'javascript:void(0);', class: 'x-ray-patient', patient_id: @patient.id
   = link_to "Surgery", 'javascript:void(0)', class: 'surge-patient',
     patient_id: @patient.id
   = link_to "Billing", 'javascript:void(0)', class: 'bill-patient', patient_id: @patient.id
