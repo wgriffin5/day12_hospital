@@ -24,7 +24,7 @@ end
 
 
 def patient_checking_up
-  @ZZZZ set_patient
+  set_patient
   @patient.check_up!
   respond_to do |format|
     format.html
