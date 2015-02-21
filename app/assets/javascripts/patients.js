@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
 $("#error").fadeOut(5000);
@@ -16,7 +18,7 @@ if ($('.form-control').val().length > 0){
 });
 $(document).on('click', '.search-patients', function() {
   console.log("yolo");
-  hospital_id = $(".hospital-id").val()
+  var hospital_id = $(".hospital-id").val()
   var search = $(".patient-search").val()
   $.ajax({
     type: 'GET',
@@ -30,87 +32,84 @@ $(document).on('click', '.search-patients', function() {
 
 $(document).on('click', '.wait-patient', function(){
   console.log("wait")
-  var hospital_id ZZZZZZZZ
-  var patient_id = $(this).attr("patient_id")
+  hospital_id = $("#hospital_id").val()
+  patient_id = $("#patient_id").val()
   $.ajax({
     type: 'PATCH',
-    url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_waiting',
-    dataType: 'script' 
+    url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_waiting'
+    // dataType: 'script' 
   });
-
+  console.log("waitjax")
 });
 
 $(document).on('click', '.check-up-patient', function(){
   console.log("check")
-  var patient_id = $(this).attr("patient_id")
+  hospital_id = $("#hospital_id").val()
+  patient_id = $("#patient_id").val()
   $.ajax({
     type: 'PATCH',
     url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_checking_up',
-    dataType: 'script'
+    // dataType: 'script'
   });
+  console.log("checkjax")
 });
 
 $(document).on('click', '.x-ray-patient', function(){
   console.log("xray")
+  var hospital_id = $(this).attr("hospital_id")
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
     url: '/hospitals/' + hospital_id + '/patients/' + 
     patient_id + '/patient_x_raying',
-    dataType: 'script'
+    // dataType: 'script'
   });
+  console.log("xrayjax")
 
 });
 
 $(document).on('click', '.surgery-patient', function(){
   console.log("surgery")
+  var hospital_id = $(this).attr("hospital_id")
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
     url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_surged',
-    dataType: 'script'
+    // dataType: 'script'
   });
+  console.log("surgjax")
 
 });
 
 $(document).on('click', '.bills-patient', function(){
   console.log("bills")
+  var hospital_id = $(this).attr("hospital_id")
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
     url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/patient_billing',
-    dataType: 'script'
+    // dataType: 'script'
   });
+  console.log("billsjax")
 });
 
 
-ZZZZZZZZZZ
+
 
 
 $(document).on('click', '.leave-patient', function(){
   console.log("leave")
+  var hospital_id = $(this).attr("hospital_id")
   var patient_id = $(this).attr("patient_id")
   $.ajax({
     type: 'PATCH',
     url: '/hospitals/' + hospital_id + '/patients/' + patient_id + '/leaving_hospital',
-    dataType: 'script'
+    // dataType: 'script'
   });
+  console.log("leavjax")
 
 });
 
-// $(document).on('click', 'workflow-patient', function() {
-//   console.log("WORK");
-//   hospital_id = $(".hospital-id").val()
-//   var workflow = $(".patient-workflow").val()
-//   $.ajax({
-//     type: 'PATCH',
-//     url: '/hospitals/' + hospital_id + '/patient/workflow_states',
-//     dataType: 'script'
-//     data:{workflow_state : workflow_state}
-// });
-//     console.log(kava)
-//     console.log(hospital_id);
-})  
 
 
 

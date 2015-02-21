@@ -7,6 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+
+/ = render 'navbar'
 = link_to "Home", root_path
 = link_to "Hospitals", hospitals_path
 = link_to "Doctors", doctors_path

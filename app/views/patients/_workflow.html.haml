@@ -1,7 +1,10 @@
 Patient Status:
 
-= (@patient.workflow_state.capitalize.humanize)
+= @patient.workflow_state.capitalize.humanize
 %br
+
+- @hospital = @patient.hospital
+
 
 - if @patient.waiting?
   = link_to "Check Up", 'javascript:void(0);', class: 'check-up-patient', patient_id: @patient.id 
@@ -11,8 +14,7 @@ Patient Status:
 %br
 - if @patient.checking_up?
   = link_to "X Ray", 'javascript:void(0);', class: 'x-ray-patient', patient_id: @patient.id
-  = link_to "Surgery", 'javascript:void(0)', class: 'surge-patient',
-    patient_id: @patient.id
+  = link_to "Surgery", 'javascript:void(0)', class: 'surge-patient',patient_id: @patient.id
   = link_to "Billing", 'javascript:void(0)', class: 'bill-patient', patient_id: @patient.id
   = link_to "Leaving", 'javascript:void(0)', class: 'leave-patient', patient_id: @patient.id
 
