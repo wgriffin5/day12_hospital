@@ -2,23 +2,22 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Day12Hospital
+    %title Apollo Medical
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
 
-/ = render 'navbar'
-= link_to "Home", root_path
-= link_to "Hospitals", hospitals_path
-= link_to "Doctors", doctors_path
-= link_to "Medications", medications_path
-- if flash[:notice]
-  %h3#notice= flash[:notice]
-- if flash[:error]
-  %h3#error= flash[:error]
-.body-content
-  = yield
+= render 'layouts/navbar' unless @disable_nav 
+
+/ = render partial: "layouts/navbar" unless current_page?(localhost:3000)
+
+/ - if flash[:notice]
+/    %h3#notice= flash[:notice]
+/ - if flash[:error]
+/    %h3#error= flash[:error]
+/ # .body-content
+= yield
 
 
 
