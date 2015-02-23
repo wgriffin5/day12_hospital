@@ -1,25 +1,21 @@
 !!!
 %html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Apollo Medical
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-
-= render 'layouts/navbar'   
-
-/ = render partial: "layouts/navbar" unless current_page?(localhost:3000)
-
-/ - if flash[:notice]
-/    %h3#notice= flash[:notice]
-/ - if flash[:error]
-/    %h3#error= flash[:error]
-/ # .body-content
-= yield
+%head
+%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+%title Apollo Medical
+= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+%body
+- if flash[:notice]
+  %h3.notice= flash[:notice]
+- if flash[:error]
+  %h3#error= flash[:error]
+= render 'layouts/navbar' unless @disable_nav  
+.body-content
+  = yield
 
 
 
-/ = link_to "Patients", hospital_patients_path
+
 

@@ -4,10 +4,7 @@ class HospitalController < ApplicationController
 
   def index 
     @patients = Patient.all
+    @disable_nav = true
   end
-
-  # def landing_page
-  #   @disable_nav = true
-  # end
 
 end
