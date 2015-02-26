@@ -9,12 +9,13 @@ All Doctors
   = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Doctors"
   = submit_tag "Search"
 
-= link_to "Add Doctor", new_doctor_path
+= link_to "Add Doctor", new_doctor_path, class: "btn btn-primary"
 %br
 - @doctors.each do |doctor|
-  =doctor.name
-  =doctor.practice
-  %br
-  = link_to 'View Doctor', doctor_path(doctor)
+  %ul.dl-horizontal
+  %dd Dr. #{doctor.name}, MD
+  %dt Practice
+  %dd #{doctor.practice}
+  = link_to 'View Doctor', doctor_path(doctor), class: "btn btn-info"
   %br
   %br

@@ -1,28 +1,32 @@
-%h1 Hospitals
+.container
+  .row
+    .col-md-12.text-center
+      %h1 Hospitals
 %br
 
 = form_tag hospitals_path, method: :get, class: "navbar-form", role: "search" do
   .input-group 
   = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Hospitals"
   = submit_tag "Search"
-= link_to "ADD New Hospital", new_hospital_path
+= link_to "Add New Hospital", new_hospital_path, class: "btn btn-primary"
 %br
 %br
 
 
 - @hospitals.each do |h|
-  = link_to "View", hospital_path(h)
-  Name:    #{h.name}
+  %ul.dl-horizontal
+  %dt Name:    
+  %dd #{h.name}
+  %dt Address:    
+  %dd #{h.address}
+  %dt City: 
+  %dd #{h.city}
+  %dt State: 
+  %dd #{h.state}
+  %dt Zip: 
+  %dd #{h.zip}
+  %dt Specialty:    
+  %dd #{h.specialty}
+  = link_to "View", hospital_path(h), class: "btn btn-info" 
   %br
-  Address:    #{h.address}
   %br
-  City:    #{h.city}
-  %br
-  State:    #{h.state}
-  %br
-  Zip:    #{h.zip}
-  %br
-  Specialty:    #{h.specialty}
-  %br
-  %br
-   

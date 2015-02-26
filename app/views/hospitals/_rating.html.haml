@@ -1,0 +1,11 @@
+= form_for @rating, url: create_rating_hospital_path(@hospital) do |r|
+  = r.label :score
+  = r.text_field :score
+  %br
+  = r.label :comment
+  = r.text_field :comment
+  %br
+  = r.submit
+  - @ratings.each do |r|
+    = r.score
+    = r.comment

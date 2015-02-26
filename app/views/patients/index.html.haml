@@ -14,23 +14,18 @@
 /   =submit_tag "Search"
 
 
-/ .input-group-btn
-/   %button.btn.btn-default{:style => "width:40px;"}
-/     %i.glyphicon.glyphicon-search
-
 %br
 %br 
 - @patients.each do |patient|
   %li{class: "search-index{index.id}"}
-  = link_to "View Patient", hospital_patient_path(@hospital, patient)
   %br
-  First Name: 
+  %dt First Name 
   = patient.first_name
   %br
-  Last Name:
+  %dt Last Name
   = patient.last_name
   %br
-  Patient Status: 
-  %br
+  %dt Patient Status 
   = patient.workflow_state.capitalize
   %br
+  = link_to "View Patient", hospital_patient_path(@hospital, patient), class: "btn btn-info"

@@ -1,74 +1,36 @@
-=link_to "Home", root_path
+.container
+  .row
+    %ul.dl-horizontal
+      %dt First Name 
+      = @patient.first_name
+      %br
+      %dt Last Name
+      = @patient.last_name
+      %br
+      %dt DOB
+      = @patient.date_of_birth
+      %br
+      %dt Description
+      = @patient.description
+      %br
+      %dt Gender
+      = @patient.gender
+      %br
+      %dt Blood Type
+      = @patient.blood_type
+      %br
+      %dt Medications
+      - @patient.medications.each do |m|
+        = m.name
 
-%br
+      %br
+      %dt Physician
+      - @patient.doctors.each do |d|
+        = d.name
+      %br
+      %br
 
-First Name: 
-= @patient.first_name
-%br
-Last Name:
-= @patient.last_name
-%br
-DOB:
-= @patient.date_of_birth
-%br
-Description:
-= @patient.description
-%br
-Gender:
-= @patient.gender
-%br
-Blood Type:
-= @patient.blood_type
-%br
-Medications:
-- @patient.medications.each do |m|
-  = m.name
-
-%br
-Physician:
-- @patient.doctors.each do |d|
-  = d.name
-%br
-/ = @patient.doctors
-/ #{@patient.doctors}
-%br
-%br
-/ Status:
-/ #{@patient.workflow_state.capitalize.humanize}
-  
- 
-.workflow-states
-  = render 'workflow'
-
-/ - if @patient.waiting? 
-/   =link_to "Check Up", patient_checking_up_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "X-Ray", patient_x_raying_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Leaving",leaving_hospital_patient_path(@hospital, @patient), method: :patch
-
-/ - if @patient.checking_up?
-/   =link_to "X-Ray", patient_x_raying_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Leaving",leaving_hospital_patient_path(@hospital, @patient), method: :patch
-
-/ - if @patient.x_raying?
-/   =link_to "Surgery", patient_surged_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
-/   =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
-
-/ - if @patient.surged?
-/   =link_to "Billing", patient_billing_hospital_patient_path(@hospital, @patient), method: :patch
-  
-/ - if @patient.billing? 
-/   =link_to "Leaving", leaving_hospital_patient_path(@hospital, @patient), method: :patch
-
-
-
-%br
-%br
-
-=link_to "Edit", edit_hospital_patient_path 
-%br
-=link_to "Delete", hospital_patient_path, method: :delete 
+      =link_to "Edit", edit_hospital_patient_path, class: "btn btn-info" 
+      %br
+      =link_to "Delete", hospital_patient_path, method: :delete, class: "btn btn-info" 
 

@@ -11,9 +11,11 @@
   %h3.notice= flash[:notice]
 - if flash[:error]
   %h3#error= flash[:error]
-= render 'layouts/navbar' unless @disable_nav  
-.body-content
-  = yield
+.container
+  = render 'layouts/navbar' unless @disable_nav
+.container
+  .body-content
+    = yield
 
 
 

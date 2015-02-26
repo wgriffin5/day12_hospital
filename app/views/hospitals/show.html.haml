@@ -1,56 +1,36 @@
-%br
-%br
-Name:
-= @hospital.name
-%br
-%br
-Address:
-= @hospital.address
-%br
-%br
-City:     
-= @hospital.city
-%br
-%br
-State:
-= @hospital.state
-%br
-%br
-Zip:
-= @hospital.zip
-%br
-%br
-Specialty:     
-= @hospital.specialty
-%br
-%br
-= form_for @rating, url: create_rating_hospital_path(@hospital) do |r|
-  = r.label :score
-  = r.text_field :score
+.container
   %br
-  = r.label :comment
-  = r.text_field :comment
+  %ul.dl-horizontal
+  %dt Name
+  = @hospital.name
   %br
-  = r.submit
-- @ratings.each do |r|
-  = r.scoreNa
-  = r.comment
   %br
-
-= link_to "Edit Hospital", edit_hospital_path(@hospital)
-%br
-= link_to "Delete Hospital", hospital_path(@hospital), method: :delete
-%br
-= form_for @rating, url: create_rating_hospital_path(@hospital) do |f|
-  = f.label :score
-  = f.text_field :score
+  %dt Address
+  = @hospital.address
   %br
-  = f.label :comment
-  = f.text_field :comment
   %br
-  = f.submit
+  %dt City     
+  = @hospital.city
   %br
-= link_to "View Patients", hospital_patients_path(@hospital)
+  %br
+  %dt State
+  = @hospital.state
+  %br
+  %br
+  %dt Zip
+  = @hospital.zip
+  %br
+  %br
+  %dt Specialty     
+  = @hospital.specialty
+  %br
+  %br
+  = render 'rating'
+  = link_to "Edit Hospital", edit_hospital_path(@hospital), class: "btn btn-primary"
+  %br
+  = link_to "Delete Hospital", hospital_path(@hospital), method: :delete, class: "btn btn-primary"
+  %br
+  = link_to "View Patients", hospital_patients_path(@hospital), class: "btn btn-primary"
 
 
 
