@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
 def index
   @doctors = Doctor.all
   @doctors = if !params[:q].blank?
-    Doctor.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    Doctor.where("name LIKE ? OR practice LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   else
     puts "HEY WILLIAM"
     Doctor.all
@@ -17,8 +17,6 @@ end
 
 def show
   @doctor = Doctor.find params[:id]
-  # @hospitals = Hospital.all
-  # @patients = Patient.all
   @rating = Rating.new 
   @ratings = @doctor.ratings
 end 
@@ -51,9 +49,7 @@ def destroy
   redirect_to doctors_path
 end
 
-# def delete
-#   @doctor = 
-# end 
+private
 
 def doctor_params
   params.require(:doctor).permit(

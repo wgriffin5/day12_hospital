@@ -82,6 +82,7 @@ def index
   #   puts "HEY WILLIAM"
   @hospital_id = params[:hospital_id]
   @patients = @hospital.patients
+  
   # end
   respond_to do |format|
     format.js

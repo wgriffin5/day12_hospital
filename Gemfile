@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'will_paginate-bootstrap'
 gem 'quiet_assets'
 gem 'erb2haml'
 gem 'html2haml'

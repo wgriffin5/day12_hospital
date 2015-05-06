@@ -54,11 +54,7 @@ end
 
 
 def show
-  # @hospital = Hospital.find params(:hospital_id)
-  # @patient = Patient.find params[:id]
-  # @medication = Medication.find params[:id]
-  # @patient = Patient.find params[:patient_id]
-  # @medications = @patient.medications
+  
   @medication = Medication.find params[:id]
 end
 
