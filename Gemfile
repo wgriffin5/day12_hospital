@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise'
 gem 'will_paginate-bootstrap'
 gem 'quiet_assets'
 gem 'erb2haml'

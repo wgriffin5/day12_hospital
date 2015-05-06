@@ -7,12 +7,15 @@
 = javascript_include_tag 'application', 'data-turbolinks-track' => true
 = csrf_meta_tags
 %body
-- if flash[:notice]
-  %h3.notice= flash[:notice]
-- if flash[:error]
-  %h3#error= flash[:error]
+  %p.notice= notice
+  %p.alert= alert
+/ - if flash[:notice]
+/   %h3.notice= flash[:notice]
+/ - if flash[:error]
+/   %h3#error= flash[:error]
 .container
-  = render 'layouts/navbar' unless @disable_nav
+  = render 'layouts/navbar' 
+  
 .container
   .body-content
     = yield
