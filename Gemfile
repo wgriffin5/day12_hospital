@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'faker'
 gem 'devise'
 gem 'will_paginate-bootstrap'
 gem 'quiet_assets'

@@ -68,6 +68,7 @@ end
   private 
   def hospital_params
     params.require(:hospital).permit(
+    :photo,
     :name,
     :address,
     :city,

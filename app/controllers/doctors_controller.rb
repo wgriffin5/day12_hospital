@@ -53,6 +53,7 @@ private
 
 def doctor_params
   params.require(:doctor).permit(
+    :photo,
     :name,
     :practice,
     :doctorable_id,
