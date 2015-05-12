@@ -3,6 +3,9 @@
     .col-md-12.text-center
       %h1 Hospitals
 %br
+= will_paginate @hospitals, renderer: BootstrapPagination::Rails
+%br
+
 
 = form_tag hospitals_path, method: :get, class: "navbar-form", role: "search" do
   .input-group 
@@ -21,8 +24,8 @@
 %br
 %br
 
-
-= will_paginate @hospitals, renderer: BootstrapPagination::Rails
+.span
+  = will_paginate @hospitals, renderer: BootstrapPagination::Rails
 
 
   

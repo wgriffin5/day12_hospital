@@ -5,8 +5,10 @@
   .input-group 
   = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Doctors"
   = submit_tag "Search"
-
+%br
+%br
 = link_to "Add Doctor", new_doctor_path, class: "btn btn-primary"
+%br
 %br
 - @doctors.each do |doctor|
   .col-sm-4
