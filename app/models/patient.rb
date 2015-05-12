@@ -4,6 +4,13 @@ validates :last_name, presence: true
 validates :date_of_birth, presence: true
 validates :description, presence: true
 
+
+belongs_to :hospital 
+has_many :medications, through: :patient_medications
+has_many :patient_medications
+has_many :doctors, through: :patient_doctors
+has_many :patient_doctors
+
 include Workflow
   workflow do 
     state :waiting do
@@ -39,11 +46,6 @@ include Workflow
     end
   end
     
-belongs_to :hospital 
-has_many :medications, through: :patient_medications
-has_many :patient_medications
-has_many :doctors, through: :patient_doctors
-has_many :patient_doctors
 
 
 BLOOD_TYPE_OPTIONS = [

@@ -1,6 +1,8 @@
-= link_to "Add Patient", new_hospital_patient_path(@hospital)
+%h1 Existing Patients
+
+= link_to "Add Patient", new_hospital_patient_path(@hospital), class: "btn btn-primary"
 %br
-%h2 Existing Patients:
+
 %br
 
 %input.patient-search{type:"text", placeholder: "Search Patients"}

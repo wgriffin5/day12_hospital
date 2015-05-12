@@ -76,14 +76,8 @@ end
 
 def index
   @hospital = Hospital.find params[:hospital_id]
-  # @patients = if !params[:q].blank?
-  #   Patient.where("last_name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-  # else
-  #   puts "HEY WILLIAM"
   @hospital_id = params[:hospital_id]
   @patients = @hospital.patients
-  
-  # end
   respond_to do |format|
     format.js
     format.html
@@ -153,8 +147,13 @@ end
 def destroy
   @hospital = Hospital.find params[:hospital_id]
   @patient = @hospital.patients.find params[:id]
-  @patient.delete
-  redirect_to hospital_patients_path
+  if @patient.delete
+    flash[:notice] = 'Patient deleted.'
+    redirect_to hospital_patients_path
+  else
+    flash[:error] = 'Patient not deleted.'
+    render :index
+  end
 end
 
 private 

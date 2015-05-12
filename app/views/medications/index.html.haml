@@ -1,10 +1,10 @@
 %br
 %h1
-All Medications
+%h1 Current Medications
 %br
-= link_to :back
+/ = link_to :back
 %br 
-=link_to "Create Medication", new_medication_path
+=link_to "Create Medication", new_medication_path, class: "btn btn-primary"
 
 = form_tag medications_path, method: :get, class: "navbar-form", role: "search" do
   .input-group 
@@ -15,9 +15,9 @@ All Medications
 / = render 'form'
 - @medications.each do |medication|
   %ul.dl-horizontal
-  %dt Name 
-  %dd #{medication.name}
-  = link_to 'View Medication', medication_path(medication), class: "btn btn-info" 
+  / %dt Name 
+  = link_to medication.name, medication_path(medication) #{medication.name}
+  / = link_to 'View Medication', medication_path(medication), class: "btn btn-info" 
   %br
   %br
   

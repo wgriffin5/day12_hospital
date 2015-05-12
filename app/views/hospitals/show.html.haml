@@ -1,25 +1,22 @@
+
+
 .container
   %br
   %ul.dl-horizontal
   %dt Name
   = @hospital.name
   %br
-  %br
   %dt Address
   = @hospital.address
-  %br
   %br
   %dt City     
   = @hospital.city
   %br
-  %br
   %dt State
   = @hospital.state
   %br
-  %br
   %dt Zip
   = @hospital.zip
-  %br
   %br
   %dt Specialty     
   = @hospital.specialty
@@ -28,7 +25,10 @@
   = render 'rating'
   = link_to "Edit Hospital", edit_hospital_path(@hospital), class: "btn btn-primary"
   %br
+  %br
   = link_to "Delete Hospital", hospital_path(@hospital), method: :delete, class: "btn btn-primary"
+  / = link_to("Delete", {:action => 'destroy', :id => display.id})
+  %br
   %br
   = link_to "View Patients", hospital_patients_path(@hospital), class: "btn btn-primary"
 

@@ -1,28 +1,33 @@
-%br
+%h1 Individual Doctor Card
 %br 
 
-Doctor Name:
+%h5 Doctor Name:
 = @doctor.name 
 %br
-Doctor Practice:
+%h5 Doctor Practice:
 = @doctor.practice
 %br
 
 %br
-= link_to "Edit", edit_doctor_path(@doctor)
-= link_to "Back", :back
+= link_to "Edit", edit_doctor_path(@doctor), class: "btn btn-primary"
+= link_to "Back", :back, class: "btn btn-primary"
 
-= link_to "Delete", doctor_path, method: :delete
+= link_to "Delete", doctor_path, method: :delete, class: "btn btn-primary"
 
+%br
 
+%h4 Current Rating
 - @ratings.each do |r|
+  Score:
   =r.score
+  %br
+  Comment:
   =r.comment
   %br
 
 
 
-
+%h4 Form for Rating
 = form_for @rating, url: create_rating_doctor_path(@doctor) do |r|
   =r.label :score
   =r.text_field :score

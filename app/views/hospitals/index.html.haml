@@ -17,7 +17,7 @@
   %ul.dl-horizontal
   = image_tag h.photo
   = link_to h.name, hospital_path(h)
-
+  = will_paginate @hospitals, renderer: BootstrapPagination::Rails
 
 
   / %dt Name:    

@@ -1,13 +1,16 @@
 class DoctorsController < ApplicationController
 
+before_action :authenticate_user!, except: [:index, :show]
+
+
 def index
   @doctors = Doctor.all
   @doctors = if !params[:q].blank?
     Doctor.where("name LIKE ? OR practice LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   else
-    puts "HEY WILLIAM"
-    Doctor.all
-  end.shuffle
+    puts "Our Doctors"
+    Doctor.all.paginate(:page => params[:page], :per_page => 25)
+  end
 end
 
 def new

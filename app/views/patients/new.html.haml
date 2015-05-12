@@ -1,9 +1,9 @@
-%h1 newpatient!!!!
+%h1 Create Patient Form
 - if @patient.errors.any?
   - @patient.errors.full_messages.each do |message|
 
     %p= message
     %br
     
-= link_to "Home", root_path
+
 = render 'form'

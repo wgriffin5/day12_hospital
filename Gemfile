@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
 gem 'faker'
 gem 'devise'
 gem 'will_paginate-bootstrap'
