@@ -31,3 +31,5 @@
   = patient.workflow_state.capitalize
   %br
   = link_to "View Patient", hospital_patient_path(@hospital, patient), class: "btn btn-info"
+
+= will_paginate @patients, renderer: BootstrapPagination::Rails

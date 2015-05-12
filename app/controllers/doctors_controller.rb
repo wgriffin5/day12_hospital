@@ -9,7 +9,7 @@ def index
     Doctor.where("name LIKE ? OR practice LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   else
     puts "Our Doctors"
-    Doctor.all.paginate(:page => params[:page], :per_page => 25)
+    Doctor.all.paginate(:page => params[:page], :per_page => 6)
   end
 end
 

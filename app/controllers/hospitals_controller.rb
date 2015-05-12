@@ -11,7 +11,7 @@ def index
     Hospital.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR specialty LIKE ?",  "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%" )
   else
     puts "Our Hospitals"
-    Hospital.all.paginate(:page => params[:page], :per_page => 25)
+    Hospital.all.paginate(:page => params[:page], :per_page => 8)
   end
 end
 
