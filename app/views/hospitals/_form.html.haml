@@ -1,3 +1,8 @@
+%h1
+  Create Hospital Form
+%br
+%br
+
 = form_for @hospital do |h|
   = h.label :name
   = h.text_field :name
@@ -22,6 +27,7 @@
     = d.name
   %br
   = h.submit
-
+  %br
+  %br
   = link_to "Cancel", :back 
 

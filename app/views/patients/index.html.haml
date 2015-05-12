@@ -1,8 +1,9 @@
-%h1 Existing Patients
+%h1 
+  Patients of
+  = @hospital.name + " Hospital"
 
 = link_to "Add Patient", new_hospital_patient_path(@hospital), class: "btn btn-primary"
 %br
-
 %br
 
 %input.patient-search{type:"text", placeholder: "Search Patients"}
@@ -32,4 +33,4 @@
   %br
   = link_to "View Patient", hospital_patient_path(@hospital, patient), class: "btn btn-info"
 
-= will_paginate @patients, renderer: BootstrapPagination::Rails
+  / = will_paginate @patients, renderer: BootstrapPagination::Rails

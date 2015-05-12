@@ -7,7 +7,7 @@ task create_patients: :environment do
         description: "#{Faker::Lorem.sentence}",
         blood_type: "B+",
         workflow_state: "Goner",
-        hospital_ids: "3"
+        # hospital_ids: "3"
         })
   end
   

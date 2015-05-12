@@ -91,7 +91,7 @@ def new
   @patient = @hospital.patients.new
   @doctors = Doctor.all
   @medications = Medication.all
-  # @patients = Patient.all
+  @patients = Patient.all
 end 
 
 def search_results
