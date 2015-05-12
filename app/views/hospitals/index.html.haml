@@ -14,37 +14,12 @@
  
 
 - @hospitals.each do |h|
-  %ul.dl-horizontal
-  = image_tag h.photo
-  = link_to h.name, hospital_path(h)
+  .col-sm-4
+    / = image_tag h.photo
+    = link_to h.name, hospital_path(h)
+%br
+
 = will_paginate @hospitals, renderer: BootstrapPagination::Rails
 
 
-  / %dt Name:    
-  / %dd #{h.name}
-  / %dt Address:    
-  / %dd #{h.address}
-  / %dt City: 
-  / %dd #{h.city}
-  / %dt State: 
-  / %dd #{h.state}
-  / %dt Zip: 
-  / %dd #{h.zip} 
-  / %dt Specialty:    
-  / %dd #{h.specialty}
-  / = link_to "View", hospital_path(h), class: "btn btn-info" 
-  / %br
-  / %br
-
-
-
-/ .row
-/   .col-sm-6.col-md-4
-/     .thumbnail
-/       %img{:alt => "...", :src => "..."}
-/         .caption
-/           %h3 Thumbnail label
-/           %p ...
-/           %p
-/             %a.btn.btn-primary{:href => "#", :role => "button"} Button
-/             %a.btn.btn-default{:href => "#", :role => "button"} Button
+  

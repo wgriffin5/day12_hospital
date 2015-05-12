@@ -9,12 +9,11 @@
 = link_to "Add Doctor", new_doctor_path, class: "btn btn-primary"
 %br
 - @doctors.each do |doctor|
-  %ul.dl-horizontal
-  = link_to doctor.name, doctor_path(doctor) #Dr. #{doctor.name}, MD
-  %dt Practice
-  %dd #{doctor.practice}
-  = image_tag doctor.photo  
-  / = link_to 'View Doctor', doctor_path(doctor), class: "btn btn-info"
-  %br
-  %br
+  .col-sm-4
+    = link_to doctor.name, doctor_path(doctor) 
+    %dt Practice
+    %dd #{doctor.practice}
+    = image_tag doctor.photo  
+    %br
+    %br
 = will_paginate @doctors, renderer: BootstrapPagination::Rails
