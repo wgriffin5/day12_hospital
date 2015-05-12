@@ -4,6 +4,16 @@ class HospitalsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
 
+# around_filter :catch_not_found
+
+# private
+
+# def catch_not_found
+#   yield
+# rescue ActiveRecord::RecordNotFound
+#   redirect_to hospitals_path, :flash => { :error => "Record not found." }
+# end
+
 def index
   @hospitals = Hospital.all
   @medications = Medication.all
@@ -40,14 +50,14 @@ def show
   @doctors = @hospital.doctors
   @ratings = @hospital.ratings
   @rating = Rating.new
-  @hospital.delete
-  # redirect_to hospitals_path 
+  
 end 
 
 
 def edit
   @hospital = Hospital.find params[:id]
   @doctors = Doctor.all
+  
 end
 
 def update

@@ -26,7 +26,7 @@ end
 
 def create
   @doctor = Doctor.create doctor_params
-  redirect_to doctor_path(@doctor) 
+  redirect_to doctors_path
 end
 
 def create_rating

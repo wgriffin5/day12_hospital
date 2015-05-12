@@ -1,5 +1,7 @@
 class PatientsController < ApplicationController
 
+require 'will_paginate/array'
+
 before_action :set_patient, only: [
   :show,
   :edit,
@@ -89,7 +91,7 @@ def new
   @patient = @hospital.patients.new
   @doctors = Doctor.all
   @medications = Medication.all
-  @patients = Patient.all
+  # @patients = Patient.all
 end 
 
 def search_results
@@ -123,9 +125,9 @@ def show
   @hospital = Hospital.find params[:hospital_id]
   @patient = Patient.find params[:id]
   @doctors = @patient.doctors
-  @medication = @patient.medications
+  # @medication = @patient.medications
   @medications = Medication.all
-  @hospitals = Hospital.all
+  # @hospitals = Hospital.all
 end
 
 def edit
@@ -134,7 +136,7 @@ def edit
   @doctors = Doctor.all
   @patients = Patient.all
   @medications = Medication.all
-  @hospitals = Hospital.all 
+  # @hospitals = Hospital.all 
 end
 
 def update
