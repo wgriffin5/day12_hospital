@@ -3,7 +3,7 @@ task create_doctors: :environment do
     Doctor.create!({
       name: "#{Faker::Name.name}",
       practice: "#{Faker::Name.title}",
-      photo: "#{Faker::Avatar.image}"
+      photo: "http://placecreature.com/200/200"
       })
     
   end

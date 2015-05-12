@@ -23,7 +23,8 @@
   %br
   %br
   = render 'rating'
-  = link_to "Edit Hospital", edit_hospital_path(@hospital), class: "btn btn-primary"
+  = link_to "Edit Hospital", edit_hospital_path(@hospital)
+  / , class: "btn btn-primary"
   %br
   %br
   = link_to "Delete Hospital", hospital_path(@hospital), method: :delete, class: "btn btn-primary"

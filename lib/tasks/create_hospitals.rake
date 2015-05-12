@@ -5,8 +5,9 @@ task create_hospitals: :environment do
       address: "#{Faker::Address.street_address}",
       city: "#{Faker::Address.city}",
       state: "#{Faker::Address.state}",
-      photo: 
-
+      zip: "#{Faker::Address.zip}",
+      specialty: "#{Faker::Lorem.sentences}",
+      photo: "http://fillmurray.com/200/300"
       })
   end
   

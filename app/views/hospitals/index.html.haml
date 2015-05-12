@@ -15,9 +15,12 @@
 
 - @hospitals.each do |h|
   .col-sm-4
-    / = image_tag h.photo
+    = image_tag h.photo
+    %br
     = link_to h.name, hospital_path(h)
 %br
+%br
+
 
 = will_paginate @hospitals, renderer: BootstrapPagination::Rails
 
