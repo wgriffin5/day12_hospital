@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'pg'
 gem 'will_paginate'
 gem 'faker'
 gem 'devise'
