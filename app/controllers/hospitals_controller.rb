@@ -22,7 +22,7 @@ def index
   else
     puts "Our Hospitals"
     Hospital.all.paginate(:page => params[:page], :per_page => 4)
-  end
+   end
 end
 
 
@@ -67,8 +67,9 @@ def update
 end
 
 def destroy 
-  @hospital = Hospital.find params[:id]
+  @hospital = Hospital.find params[:id] 
   @hospital.delete
+  # flash[:notice] = @hospital.hospital + ' is succesfully deleted.'
   redirect_to hospitals_path
 end
 
