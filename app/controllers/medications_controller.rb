@@ -11,7 +11,7 @@ def index
   else
     puts "HEY WILLIAM"
     Medication.all
-  end.shuffle
+  end
   # @hospital = Hospital.find params[:hospital_id]
   # @patient = Patient.find params[:patient_id]
   # @medication = @patient.medications
