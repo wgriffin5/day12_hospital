@@ -6,7 +6,7 @@ before_action :authenticate_user!, except: [:index, :show]
 def index
   @doctors = Doctor.all
   @doctors = if !params[:q].blank?
-    Doctor.where("name LIKE ? OR practice LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").paginate(:page => params[:page], :per_page => 6)
+    Doctor.where("name ILIKE ? OR practice ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").paginate(:page => params[:page], :per_page => 6)
   else
     puts "Our Doctors"
     Doctor.all.paginate(:page => params[:page], :per_page => 6)

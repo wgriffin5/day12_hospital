@@ -7,7 +7,7 @@ def index
   # @patients = @hospital.patients
   @medications = Medication.all 
   @medications = if !params[:q].blank?
-    Medication.where("name LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    Medication.where("name ILIKE ? OR description ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   else
     puts "HEY WILLIAM"
     Medication.all
