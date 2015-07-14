@@ -18,7 +18,7 @@ def index
   @hospitals = Hospital.all
   @medications = Medication.all
   @hospitals = if !params[:q].blank?
-    Hospital.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR specialty LIKE ?",  "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%" ).paginate(:page => params[:page], :per_page => 4)
+    Hospital.where("name ILIKE ? OR address ILIKE ? OR city ILIKE ? OR state ILIKE ? OR specialty ILIKE ?",  "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%" ).paginate(:page => params[:page], :per_page => 4)
   else
     puts "Our Hospitals"
     Hospital.all.paginate(:page => params[:page], :per_page => 4)
