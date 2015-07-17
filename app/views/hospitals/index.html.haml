@@ -11,14 +11,18 @@
 = form_tag hospitals_path, method: :get, class: "navbar-form", role: "search" do
   .input-group 
     = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search Hospitals"
+    %br
     = submit_tag "Search"
+
+%br
+%br
 = link_to "Add New Hospital", new_hospital_path, class: "btn btn-primary"
 %br
 %br
  
 
 - @hospitals.each do |h|
-  .col-sm-4
+  .col-sm-6
     = image_tag h.photo
     %br
     = link_to h.name, hospital_path(h)
@@ -27,7 +31,7 @@
 
 
 
-= will_paginate @hospitals, renderer: BootstrapPagination::Rails
+/ = will_paginate @hospitals, renderer: BootstrapPagination::Rails
 
 
   
